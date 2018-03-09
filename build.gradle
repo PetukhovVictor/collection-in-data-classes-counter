@@ -23,10 +23,14 @@ jar {
     manifest {
         attributes 'Main-Class': 'org.jetbrains.collectionindataclassescounter.MainKt'
     }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    runtime "org.jetbrains.kotlin:kotlin-runtime:$kotlin_version"
     compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.0"
     compile "com.xenomachina:kotlin-argparser:2.0.4"
 }
