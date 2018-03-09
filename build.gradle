@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = '1.2.21'
+    ext.kotlin_version = '1.2.30'
 
     repositories {
         mavenCentral()
@@ -17,6 +17,12 @@ apply plugin: 'kotlin'
 repositories {
     mavenCentral()
     jcenter()
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.jetbrains.collectionindataclassescounter.MainKt'
+    }
 }
 
 dependencies {
