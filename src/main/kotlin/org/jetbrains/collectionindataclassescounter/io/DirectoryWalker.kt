@@ -6,7 +6,7 @@ class DirectoryWalker(private val dirPath: String, private val maxDepth: Int = I
     private fun walkDirectory(callback: (File) -> Unit) {
         val dir = File(dirPath)
         dir.walkTopDown().maxDepth(maxDepth).forEach {
-            if (it.isFile) {
+            if (it.isFile && it.extension == "kt") {
                 callback(it)
             }
         }
